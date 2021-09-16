@@ -1,19 +1,19 @@
 const turn = (turnDirection, facing) => {
     const isTurnDirectionRight = turnDirection === 'right'
     const isTurnDirectionLeft = turnDirection === 'left'
-    const isFacingRight = facing === 'right'
-    const isFacingLeft = facing === 'left'
-    const isFacingUp = facing === 'up'
-    const isFacingDown = facing === 'down'
+    const isFacingRight = facing.direction === 'right'
+    const isFacingLeft = facing.direction === 'left'
+    const isFacingUp = facing.direction === 'up'
+    const isFacingDown = facing.direction === 'down'
 
     if ((isTurnDirectionRight && isFacingLeft) || (isTurnDirectionLeft && isFacingRight)) {
-        facing = 'up'
+        facing.direction = 'up'
     } else if ((isTurnDirectionRight && isFacingUp) || (isTurnDirectionLeft && isFacingDown)) {
-        facing = 'right'
+        facing.direction = 'right'
     } else if ((isTurnDirectionRight && isFacingRight) || (isTurnDirectionLeft && isFacingLeft)) {
-        facing = 'down'
+        facing.direction = 'down'
     } else if ((isTurnDirectionRight && isFacingDown) || (isTurnDirectionLeft && isFacingUp)) {
-        facing = 'left'
+        facing.direction = 'left'
     }
 
 }

@@ -4,10 +4,10 @@ const checkAvailability = (checkDirection, facing, currentPos, storage, Array) =
     const isCheckDirectionForward = checkDirection === 'forward'
     const isCheckDirectionRight = checkDirection === 'right'
     const isCheckDirectionLeft = checkDirection === 'left'
-    const isFacingRight = facing === 'right'
-    const isFacingLeft = facing === 'left'
-    const isFacingUp = facing === 'up'
-    const isFacingDown = facing === 'down'
+    const isFacingRight = facing.direction === 'right'
+    const isFacingLeft = facing.direction === 'left'
+    const isFacingUp = facing.direction === 'up'
+    const isFacingDown = facing.direction === 'down'
 
 
     if ((isCheckDirectionRight && isFacingUp) ||
@@ -15,7 +15,7 @@ const checkAvailability = (checkDirection, facing, currentPos, storage, Array) =
         (isCheckDirectionForward && isFacingRight)) {
         if (currentPos.row === Array.length) {
             return 'outOfArray'
-        } else if (storage.includes(Array[currentPos.row + 1][currentPos.collumn])) {
+        } else if (storage.includes(Array[currentPos.row ][currentPos.collumn - 1])) {
             return 'unavailable'
         } else return 'available'
 
@@ -24,7 +24,7 @@ const checkAvailability = (checkDirection, facing, currentPos, storage, Array) =
         (isCheckDirectionForward && isFacingUp)) {
         if (currentPos.collumn === 1) {
             return 'outOfArray'
-        } else if (storage.includes(Array[currentPos.row][currentPos.collumn - 1])) {
+        } else if (storage.includes(Array[currentPos.row - 1][currentPos.collumn - 2])) {
             return 'unavailable'
         } else return 'available'
 
@@ -33,7 +33,7 @@ const checkAvailability = (checkDirection, facing, currentPos, storage, Array) =
         (isCheckDirectionForward && isFacingDown)) {
         if (currentPos.collumn === Array[0].length) {
             return 'outOfArray'
-        } else if (storage.includes(Array[currentPos.row][currentPos.collumn + 1])) {
+        } else if (storage.includes(Array[currentPos.row - 1][currentPos.collumn])) {
             return 'unavailable'
         } else return 'available'
 
@@ -42,7 +42,7 @@ const checkAvailability = (checkDirection, facing, currentPos, storage, Array) =
         (isCheckDirectionForward && isFacingLeft)) {
         if (currentPos.row === 1) {
             return 'outOfArray'
-        } else if (storage.includes(Array[currentPos.row - 1][currentPos.collumn])) {
+        } else if (storage.includes(Array[currentPos.row - 2][currentPos.collumn - 1])) {
             return 'unavailable'
         } else return 'available'
     }

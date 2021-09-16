@@ -1,10 +1,10 @@
 const moveForward = (facing, currentPos) => {
 
 
-    const isFacingRight = facing === 'right'
-    const isFacingLeft = facing === 'left'
-    const isFacingUp = facing === 'up'
-    const isFacingDown = facing === 'down'
+    const isFacingRight = facing.direction === 'right'
+    const isFacingLeft = facing.direction === 'left'
+    const isFacingUp = facing.direction === 'up'
+    const isFacingDown = facing.direction === 'down'
 
     if (isFacingRight) {
         currentPos.row++

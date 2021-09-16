@@ -1,13 +1,13 @@
-import move from './useMove'
-import checkAvailability from './useCheckAvailability'
-import moveForward from './useMoveForward'
-import turn from './useTurn'
+import checkAvailability from './checkAvailability'
+import moveForward from './moveForward'
+import turn from './turn'
+import updateStorage from './updateStorage'
 
 
 export {
-    move,
     checkAvailability,
     moveForward,
-    turn
+    turn,
+    updateStorage
 }
 
